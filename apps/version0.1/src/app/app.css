@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e7f9f1, #e1f5fe);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+h1 {
+  text-align: center;
+  color: #00796b;
+  margin-bottom: 2rem;
+}
+
+.praxis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.praxis-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 150, 136, 0.15);
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.2s;
+  border-left: 6px solid #00796b;
+}
+
+.praxis-card:hover {
+  transform: translateY(-5px);
+}
+
+.praxis-icon {
+  font-size: 2.5rem;
+  color: #00796b;
+  margin-top: 0.2rem;
+}
+
+.praxis-content h2 {
+  margin-top: 0;
+  color: #004d40;
+}
+
+.praxis-content p {
+  margin: 0.2rem 0;
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.material-icons {
+  font-size: 1rem;
+  margin-right: 0.4rem;
+  color: #009688;
+}
+
+.bewertung span {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.bewertung span.filled {
+  color: #ffc107;
+}
+
+.bewertung .numeric {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
