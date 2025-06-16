@@ -1,8 +1,9 @@
+<!-- Praxisliste -->
 <div class="container">
   <h1>Arztpraxen-Marktplatz</h1>
   <div class="praxis-grid">
-    @for (praxis of arztpraxen; track arztpraxen){
-      <div class="praxis-card">
+    @for (praxis of arztpraxen; track praxis) {
+      <div class="praxis-card" (click)="selectPraxis(praxis, $event)">
         <div class="praxis-icon">🩺</div>
         <div class="praxis-content">
           <h2>{{ praxis.name }}</h2>
@@ -10,7 +11,7 @@
           <p><i class="material-icons">email</i> {{ praxis.email }}</p>
           <p><i class="material-icons">phone</i> {{ praxis.telefon }}</p>
           <p class="bewertung">
-            @for (star of [1,2,3,4,5]; track star; let i = $index){
+            @for (star of [1,2,3,4,5]; track star){
               <ng-container>
                 <span [class.filled]="praxis.bewertung >= star">★</span>
               </ng-container>
@@ -22,3 +23,19 @@
     }
   </div>
 </div>
+
+<!-- Zoomed-In Detailansicht -->
+@if (selectedPraxis){
+  <div class="praxis-zoom-overlay" (click)="closePraxis()">
+    <div class="praxis-zoom-card" (click)="$event.stopPropagation()">
+      <h2>{{ selectedPraxis.name }}</h2>
+      <p><strong>Straße:</strong> {{ selectedPraxis.strasse }}</p>
+      <p><strong>Email:</strong> {{ selectedPraxis.email }}</p>
+      <p><strong>Telefon:</strong> {{ selectedPraxis.telefon }}</p>
+      <p><strong>Bewertung:</strong> {{ selectedPraxis.bewertung }} / 5</p>
+      <p><strong>Öffnungszeiten:</strong> {{ selectedPraxis.oeffnungszeiten }}</p>
+      <p><strong>Beschreibung:</strong> {{ selectedPraxis.beschreibung }}</p>
+      <button (click)="closePraxis()">Zurück</button>
+    </div>
+  </div>
+}
