@@ -3,7 +3,7 @@
   <h1>Arztpraxen-Marktplatz</h1>
   <div class="praxis-grid">
     @for (praxis of arztpraxen; track praxis) {
-      <div class="praxis-card" (click)="selectPraxis(praxis, $event)">
+      <div class="praxis-card" (click)="selectPraxis(praxis)">
         <div class="praxis-icon">🩺</div>
         <div class="praxis-content">
           <h2>{{ praxis.name }}</h2>

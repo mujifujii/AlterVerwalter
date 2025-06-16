@@ -105,43 +105,10 @@ export class App {
 
 
 
-  // Add to your component class:
-  selectedPraxis: any;
-  clickPosition = { x: 0, y: 0 };
+  selectedPraxis: any = null;
 
-  async selectPraxis(praxis: any, event: MouseEvent) {
-    // Store click position
-    this.clickPosition = {
-      x: event.clientX,
-      y: event.clientY
-    };
-
-    // Create a placeholder clone
-    const clickedCard = event.currentTarget as HTMLElement;
-    const clone = clickedCard.cloneNode(true) as HTMLElement;
-    clone.style.position = 'fixed';
-    clone.style.left = `${clickedCard.getBoundingClientRect().left}px`;
-    clone.style.top = `${clickedCard.getBoundingClientRect().top}px`;
-    clone.style.width = `${clickedCard.clientWidth}px`;
-    clone.style.margin = '0';
-    clone.style.zIndex = '1001';
-    clone.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-    document.body.appendChild(clone);
-
-    // Animate clone to center
-    setTimeout(() => {
-      clone.style.left = '50%';
-      clone.style.top = '50%';
-      clone.style.transform = 'translate(-50%, -50%)';
-      clone.style.width = '90vw';
-      clone.style.maxWidth = '600px';
-    }, 10);
-
-    // Switch to detail view after animation
-    setTimeout(() => {
-      this.selectedPraxis = praxis;
-      clone.remove();
-    }, 400);
+  selectPraxis(praxis: any) {
+    this.selectedPraxis = praxis;
   }
 
   closePraxis() {

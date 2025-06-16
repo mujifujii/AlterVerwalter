@@ -77,38 +77,48 @@ h1 {
   color: #666;
 }
 
-/* Overlay anpassen */
-/* Updated Zoom Animation */
+/* Overlay */
 .praxis-zoom-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 121, 107, 0.85);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  animation: fadeIn 0.3s ease-out;
+  animation: fadeIn 0.3s ease-in-out;
+  backdrop-filter: blur(4px);
 }
 
+/* Zoom-In Karte */
 .praxis-zoom-card {
-  background: white;
-  border-radius: 16px;
+  background: #ffffff;
   padding: 2rem;
+  border-radius: 16px;
   max-width: 600px;
-  width: 90vw;
+  width: 90%;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-  position: relative;
-  animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: scale(0.8);
+  animation: zoomIn 0.3s ease-out forwards;
+  color: #004d40;
 }
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+/* Animationen */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 @keyframes zoomIn {
   from {
-    transform: scale(0.5);
+    transform: scale(0.8);
     opacity: 0;
   }
   to {
@@ -116,6 +126,7 @@ h1 {
     opacity: 1;
   }
 }
+
 /* Zoom-In Close Button */
 .praxis-zoom-card button {
   margin-top: 1rem;
